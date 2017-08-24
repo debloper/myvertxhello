@@ -11,14 +11,15 @@ import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
 
 public class HttpApplication extends AbstractVerticle {
 
-  protected static final String template = "Hello, %s!";
+  protected static final String template = "Fuck you, %s!";
 
   @Override
   public void start(Future<Void> future) {
     // Create a router object.
     Router router = Router.router(vertx);
 
-    router.get("/api/greeting").handler(this::greeting);
+    router.get("/api/hi").handler(this::greeting);
+    router.get("/api/bye").handler(this::greeting);
     router.get("/*").handler(StaticHandler.create());
 
     // Create the HTTP server and pass the "accept" method to the request handler.
